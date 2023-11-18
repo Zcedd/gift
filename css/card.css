@@ -1,148 +1,346 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-    @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url("https://fonts.googleapis.com/css?family=Indie+Flower");
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC");
 
-    body {
-        font-family: 'Indie Flower', cursive !important;
-        background: #FDE3A7;
-        margin: 0;
-        padding: 0;
+body {
+    font-family: "Indie Flower", cursive !important;
+    background: #fde3a7;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background: transparent;
+}
+
+h4 {
+    font-size: 24px;
+    line-height: 1px;
+    font-family: "Amatic SC", cursive !important;
+}
+
+.color1 {
+    color: #1bbc9b;
+}
+
+.color2 {
+    color: #c0392b;
+}
+
+.card {
+    color: #013243;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 400px;
+    background: #e0e1dc;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) perspective(2000px);
+    box-shadow: inset 10px 0 10px rgba(0, 0, 0, 0.3),
+        5px 0 30px rgba(0, 0, 0, 0.3);
+    transition: 1s;
+}
+
+.card:hover {
+    transform: translate(-50%, -50%) perspective(2000px) rotate(15deg)
+        scale(1.2);
+    box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.3),
+        0 10px 100px rgba(0, 0, 0, 0.3);
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #bac1ba;
+    transform-origin: bottom;
+    transform: skewX(-45deg);
+}
+
+.card:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 5px;
+    height: 100%;
+    background: #92a29c;
+    transform-origin: left;
+    transform: skewY(-45deg);
+}
+
+.card .imgBox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: left;
+    transition: 0.7s;
+}
+
+.card .bark {
+    position: absolute;
+    background: #e0e1dc;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 0.7s;
+}
+
+.card .imgBox img {
+    min-width: 250px;
+    max-height: 400px;
+}
+
+.card:hover .imgBox {
+    transform: rotateY(-135deg);
+}
+
+.card:hover .bark {
+    opacity: 1;
+    transition: 0.6s;
+    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3) inset;
+}
+
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0 0 0 20px;
+    z-index: -1;
+    margin-top: 30px;
+}
+
+.card .details p {
+    font-size: 15px;
+    line-height: 5px;
+    padding: 0 0 0 20px;
+    margin-top: -0.5px;
+}
+
+.card .details h4 {
+    text-align: center;
+    margin-top: 1px;
+}
+
+.gift {
+    text-align: left;
+    margin-top: -20px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* CSS for customizing text below the card */
+.text-below-card {
+    font-size: 20px;
+    /* Change the font size to your preference */
+    text-align: center;
+    /* Center-align the text */
+    margin-top: 50px;
+    /* Adjust the top margin to control the position */
+}
+
+.claim {
+    text-align: left;
+    margin-top: 1px;
+}
+
+.btn {
+    height: 4em;
+    width: 12em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0px solid black;
+}
+
+.wrapper {
+    height: 2em;
+    width: 8em;
+    position: relative;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    font-size: 17px;
+    z-index: 1;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.5s ease;
+}
+
+.flower {
+    display: grid;
+    grid-template-columns: 1em 1em;
+    position: absolute;
+    transition: grid-template-columns 0.8s ease;
+}
+
+.flower1 {
+    top: -12px;
+    left: -13px;
+    transform: rotate(5deg);
+}
+
+.flower2 {
+    bottom: -5px;
+    left: 8px;
+    transform: rotate(35deg);
+}
+
+.flower3 {
+    bottom: -15px;
+    transform: rotate(0deg);
+}
+
+.flower4 {
+    top: -14px;
+    transform: rotate(15deg);
+}
+
+.flower5 {
+    right: 11px;
+    top: -3px;
+    transform: rotate(25deg);
+}
+
+.flower6 {
+    right: -15px;
+    bottom: -15px;
+    transform: rotate(30deg);
+}
+
+.petal {
+    height: 1em;
+    width: 1em;
+    border-radius: 40% 70% / 7% 90%;
+    background: linear-gradient(#07a6d7, #93e0ee);
+    border: 0.5px solid #96d1ec;
+    z-index: 0;
+    transition: width 0.8s ease, height 0.8s ease;
+}
+
+.two {
+    transform: rotate(90deg);
+}
+
+.three {
+    transform: rotate(270deg);
+}
+
+.four {
+    transform: rotate(180deg);
+}
+
+.btn:hover .petal {
+    background: linear-gradient(#0761d7, #93bdee);
+    border: 0.5px solid #96b4ec;
+}
+
+.btn:hover .flower {
+    grid-template-columns: 1.5em 1.5em;
+}
+
+.btn:hover .flower .petal {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.btn:hover .text {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.btn:hover div.flower1 {
+    animation: 15s linear 0s normal none infinite running flower1;
+}
+
+@keyframes flower1 {
+    0% {
+        transform: rotate(5deg);
     }
 
-    ::selection {
-        background: transparent;
+    100% {
+        transform: rotate(365deg);
+    }
+}
+
+.btn:hover div.flower2 {
+    animation: 13s linear 1s normal none infinite running flower2;
+}
+
+@keyframes flower2 {
+    0% {
+        transform: rotate(35deg);
     }
 
-    h4 {
-        font-size: 24px;
-        line-height: 1px;
-        font-family: 'Amatic SC', cursive !important;
+    100% {
+        transform: rotate(-325deg);
+    }
+}
+
+.btn:hover div.flower3 {
+    animation: 16s linear 1s normal none infinite running flower3;
+}
+
+@keyframes flower3 {
+    0% {
+        transform: rotate(0deg);
     }
 
-    .color1 {
-        color: #1BBC9B;
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn:hover div.flower4 {
+    animation: 17s linear 1s normal none infinite running flower4;
+}
+
+@keyframes flower4 {
+    0% {
+        transform: rotate(15deg);
     }
 
-    .color2 {
-        color: #C0392B;
+    100% {
+        transform: rotate(375deg);
+    }
+}
+
+.btn:hover div.flower5 {
+    animation: 20s linear 1s normal none infinite running flower5;
+}
+
+@keyframes flower5 {
+    0% {
+        transform: rotate(25deg);
     }
 
-    .card {
-        color: #013243;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 300px;
-        height: 400px;
-        background: #e0e1dc;
-        transform-style: preserve-3d;
-        transform: translate(-50%, -50%) perspective(2000px);
-        box-shadow: inset 10px 0 10px rgba(0, 0, 0, 0.3), 5px 0 30px rgba(0, 0, 0, 0.3);
-        transition: 1s;
+    100% {
+        transform: rotate(-335deg);
+    }
+}
+
+.btn:hover div.flower6 {
+    animation: 15s linear 1s normal none infinite running flower6;
+}
+
+@keyframes flower6 {
+    0% {
+        transform: rotate(30deg);
     }
 
-    .card:hover {
-        transform: translate(-50%, -50%) perspective(2000px) rotate(15deg) scale(1.2);
-        box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.3), 0 10px 100px rgba(0, 0, 0, 0.3);
+    100% {
+        transform: rotate(390deg);
     }
-
-    .card:before {
-        content: '';
-        position: absolute;
-        top: -5px;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: #BAC1BA;
-        transform-origin: bottom;
-        transform: skewX(-45deg);
-    }
-
-    .card:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: -5px;
-        width: 5px;
-        height: 100%;
-        background: #92A29C;
-        transform-origin: left;
-        transform: skewY(-45deg);
-    }
-
-    .card .imgBox {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        transform-origin: left;
-        transition: 0.7s;
-    }
-
-    .card .bark {
-        position: absolute;
-        background: #e0e1dc;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: 0.7s;
-    }
-
-    .card .imgBox img {
-        min-width: 250px;
-        max-height: 400px;
-    }
-
-    .card:hover .imgBox {
-        transform: rotateY(-135deg);
-    }
-
-    .card:hover .bark {
-        opacity: 1;
-        transition: 0.6s;
-        box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3) inset;
-    }
-
-    .card .details {
-        position: absolute;
-        top: 0;
-        left: 0;
-        box-sizing: border-box;
-        padding: 0 0 0 20px;
-        z-index: -1;
-        margin-top: 30px;
-    }
-
-    .card .details p {
-        font-size: 15px;
-        line-height: 5px;
-        padding: 0 0 0 20px;
-        margin-top: -0.5px;
-    }
-
-    .card .details h4 {
-        text-align: center;
-        margin-top: 1px;
-    }
-
-    .gift {
-        text-align: left;
-        margin-top: -20px;
-    }
-
-    .text-right {
-        text-align: right;
-    }
-
-    /* CSS for customizing text below the card */
-    .text-below-card {
-        font-size: 20px;
-        /* Change the font size to your preference */
-        text-align: center;
-        /* Center-align the text */
-        margin-top: 50px;
-        /* Adjust the top margin to control the position */
-    }
-
-    .claim {
-        text-align: left;
-        margin-top: 1px;
-    }
+}
